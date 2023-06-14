@@ -1,0 +1,24 @@
+.container {
+    padding: 0.5em;
+    background-color: #ff0000;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+img {
+    width: 8em;
+    flex: 0 0 auto;
+    margin-right: 10px;
+}
+
+.menu {
+    color: white;
+    text-decoration: none;
+    font-size: 1.7em;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+}
+
+.menu:hover {
+    filter: drop-shadow(0 2px 5px #dd8282);
+}

@@ -1,0 +1,39 @@
+.landingPageContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+	text-align: center;
+	background-color: red;
+}
+
+#video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.startButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 25px 50px;
+  font-size: 18px;
+  background-color: transparent;
+  color: red;
+  border: solid red;
+  border-radius: 4px;
+  transition: background-color 0.6s, color 0.6s;
+}
+
+.startButton:hover {
+  background-color: red;
+  color: white;
+	backdrop-filter: blur(5px);
+	box-shadow: rgb(253, 42, 42) 1px 1px 100px 100px;
+	transition: box-shadow 0.5s;
+	font-weight: bold;
+	transition: font-weight 0.1s;
+	animation:cubic-bezier(0.19, 1, 0.22, 1)
+}
