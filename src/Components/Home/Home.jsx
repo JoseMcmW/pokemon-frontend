@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <div className={style.homeContainer}>
       <h1>Pokemones</h1>
-      <div>
+      <div className={style.cardsComponent}>
         {getAllPokemons?.map((pokemon, index) => (
         <Card
           key={index}

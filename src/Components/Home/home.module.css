@@ -5,3 +5,10 @@
 h1 {
   color: white;
 }
+
+.cardsComponent {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
