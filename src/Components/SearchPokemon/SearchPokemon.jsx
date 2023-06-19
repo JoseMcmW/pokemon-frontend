@@ -20,7 +20,7 @@ export default function SearchBar({ refreshHandler }) {
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
 			event.preventDefault();
-      handleSubmit();
+      handleSubmit(event);
     }
   };
 
@@ -32,7 +32,7 @@ export default function SearchBar({ refreshHandler }) {
         type="search"
         placeholder="Name..."
         onChange={handleChange}
-        onKeyDown={handleKeyPress}
+        onKeyDown={(event) => handleKeyPress(event)}
         value={name}
       />
       <button onClick={handleSubmit} className={styles.buttonSearch}>Search</button>
