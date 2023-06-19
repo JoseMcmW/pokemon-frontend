@@ -1,13 +1,11 @@
 .figure {
     display: grid;
-    border-radius: 1rem;
     margin-top: 1em;
-    overflow: hidden;
     cursor: pointer;
-    height: 200px;
-    width: calc(21%); /* Establece el ancho de cada card */
+    height: 250px;
     margin-right: 10px;
   }
+
   .figure > * {
     grid-area: 1/1;
     transition: .4s;
@@ -41,14 +39,17 @@
   }
   .figure:hover figcaption{
     --_i: 0%;
+    border-radius: 1rem;
   }
   .figure:hover img {
-    translate: 0% -9%;
+    translate: 0% -5%;
     transform: scale(1.2);
+    border-radius: 1rem;
   }
   @supports not (-webkit-mask-clip: text) {
-    .figure figcaption {
-     -webkit-mask: none;
-     color: #fff;
+    .figure figcaption * div{
+    -webkit-mask: none;
+    color: #F2B705;
+    border-radius: 1rem;
     }
   }

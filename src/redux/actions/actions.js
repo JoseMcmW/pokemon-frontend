@@ -1,24 +1,96 @@
-import axios from "axios"
+import axios from "axios";
 import {
-	ALL_POKEMONS,
-/* 	SEARCH_POKEMONS,
-	DETAIL_POKEMON,
-	CREATE_POKEMON,
+  ALL_POKEMONS,
+  SEARCH_POKEMONS,
+  DETAIL_POKEMON,
+  CREATE_POKEMON,
 	ALL_TYPES,
 	FILTER_ORIGIN,
+  FILTER_TYPE,
 	ORDER_BY_ATTACK,
-	ORDER_BY_ALPHABETIC */
+	ORDER_BY_ALPHABETIC
 } from "../actions-types/actionsTypes";
 
-const URL_BASE = "http://localhost:3001/pokemons/";
+const URL_POKE = "http://localhost:3001/pokemons/";
+const URL_TYPE = "http://localhost:3001/types";
 
-export const allPokemons = () => {
-	return async function (dispatch) {
-		try {
-			const pokemons = await axios.get(URL_BASE)
-			return dispatch({type: ALL_POKEMONS, payload: pokemons.data})
-		} catch (error) {
-			throw error;
-		}
-	}
+
+export const getAllPokemons = () => {
+  return async function (dispatch) {
+    try {
+      const pokemons = await axios.get("http://localhost:3001/pokemons/");
+      return dispatch({ type: ALL_POKEMONS, payload: pokemons.data });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
+export const searchPokemons = (name) => {
+  return async function (dispatch) {
+    try {
+      const search = await axios.get(`http://localhost:3001/pokemons/name?name=${name}`);
+      return dispatch({ type: SEARCH_POKEMONS, payload: search.data });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
+export const detailPokemon = (id) => {
+  return async function (dispatch) {
+    try {
+      const detail = await axios.get(`${URL_POKE}${id}`);
+      console.log('detail.data :>> ', detail.data[0]);
+      return dispatch({ type: DETAIL_POKEMON, payload: detail.data });
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
+export const createPokemon = (body) => {
+  return async function (dispatch) {
+    try {
+      const create = await axios.post(`${URL_POKE}`, body)
+      return dispatch({ type: CREATE_POKEMON, payload: create.data })
+    } catch (error) {
+      throw error
+    }
+  }
+}
+
+export const typesPokemon = () => {
+  return async function (dispatch) {
+    try {
+      const types = await axios.get(`${URL_TYPE}`);
+      return dispatch({ type: ALL_TYPES, payload: types.data })
+    } catch (error) {
+      throw error
+    }
+  }
+}
+
+export const filterOrigin = (payload) => {
+  return {
+    type: FILTER_ORIGIN, payload
+  }
+}
+
+export const filterType = (payload) => {
+  return {
+    type: FILTER_TYPE, payload
+  }
+}
+
+export const orderByAttack = (payload) => {
+  return {
+    type: ORDER_BY_ATTACK, payload
+  }
+}
+
+export const orderAlphabetic = (payload) => {
+  return {
+    type: ORDER_BY_ALPHABETIC, payload
+  }
 }

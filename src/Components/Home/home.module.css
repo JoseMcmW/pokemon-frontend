@@ -1,5 +1,8 @@
 .homeContainer {
-  background-color: red;
+  opacity: 1;
+  background-image: radial-gradient(#ff0000 0.45px, #ffffff 0.45px);
+  background-size: 9px 9px;
+  min-height: 100vh;
 }
 
 h1 {
@@ -12,3 +15,25 @@ h1 {
   justify-content: center;
 }
 
+.linkDetail {
+  text-decoration: none;
+  color: inherit;
+  width: calc(21%);
+  display: grid;
+  border-radius: 1rem;
+  margin-top: 1em;
+  cursor: pointer;
+  height: 200px;
+  margin-right: 10px;
+  margin-bottom: 2em;
+}
+
+.filtersComponent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row ;
+  padding-bottom: 1.5em;
+  background-color: white;
+  padding-top: 2em;
+}

@@ -1,4 +1,4 @@
-.formCreateContainer {
+.detailContainer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,15 +11,6 @@
   background-size: 9px 9px;
 }
 
-.formContainer h3 {
-  font-size: 2em;
-  color: #F2B705;
-  background-color: #162D59;
-  text-shadow: 1px 1px 10px #2C7BBF;
-  width: 350px;
-  text-align: center;
-}
-
 .imageContainer {
   width: 50%;
   height: 100%;
@@ -29,13 +20,22 @@
   flex-direction: column;
 }
 
+.imageContainer h3 {
+  font-size: 2em;
+  color: #F2B705;
+  background-color: #162D59;
+  text-shadow: 1px 1px 10px #2C7BBF;
+  width: 350px;
+  text-align: center;
+}
+
 .imageContainer img {
   width: 500px;
   height: 500px;
   filter: drop-shadow(0px 0px 10px #000000);
 }
 
-.formContainer {
+.dataContainer {
   width: 50%;
   height: 100%;
   display: flex;
@@ -44,25 +44,17 @@
   align-items: center;
 }
 
-.divInput {
-  margin-top: 1em;
-  display: flex;
-  align-items: center;
-  justify-content: right;
+.dataContainer p {
+  height: 2.5em;
+  font-size: 1.3em;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
-.divInput label {
+.dataContainer span {
+  color: #162D59;
   color: #F2B705;
-  font-family: 'Archivo Narrow', sans-serif;
   background-color: #162D59;
-  font-size: 1.5em;
-  text-align: right;
-}
-
-.divInput input {
-  height: 2em;
-}
-
-.divInput select {
-  width: 175px;
+  text-shadow: 1px 1px 10px #2C7BBF;
+  text-align: center;
 }
