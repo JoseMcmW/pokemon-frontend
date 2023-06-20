@@ -1,0 +1,20 @@
+.originContainer {
+  margin-right: 1em;
+}
+
+.typeContainer {
+  margin-right: 1em;
+}
+
+label {
+  margin-right: 0.5em;
+  color: #F2B705;
+  font-family: 'Archivo Narrow', sans-serif;
+}
+
+select {
+  height: 2em;
+  width: 8em;
+  border-radius: 5px;
+  color: #162D59;
+}

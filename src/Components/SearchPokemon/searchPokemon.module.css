@@ -1,0 +1,37 @@
+.searchContainer {
+  margin-left: 1em;
+}
+
+label {
+  color: #F2B705;
+}
+
+.inputSearch {
+  height: 2em;
+  border-radius: 5px;
+}
+
+.inputSearch::placeholder {
+  padding-left: 0.5em;
+}
+
+.inputSearch:active {
+  box-shadow: 1px 1px 15px #2C7BBF;
+}
+
+.inputSearch:hover {
+  box-shadow: 1px 1px 15px #2C7BBF;
+}
+
+.buttonSearch {
+  height: 2em;
+  width: 5em;
+  margin-left: 0.5em;
+  background-color: #162D59;
+  color: #F2B705;
+  border-radius: 5px;
+}
+
+.buttonSearch:hover {
+  box-shadow: 1px 1px 15px #2C7BBF;
+}
