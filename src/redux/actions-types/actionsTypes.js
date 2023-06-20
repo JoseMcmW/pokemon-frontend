@@ -8,4 +8,3 @@ export const FILTER_TYPE = "FILTER_TYPE";
 export const FILTER_ORIGIN = "FILTER_ORIGIN"; //De la base de datos o de la API.
 export const ORDER_BY_ATTACK = "ORDER_BY_ATTACK";
 export const ORDER_BY_ALPHABETIC = "ORDER_BY_ALPHABETIC";
-

@@ -8,9 +8,9 @@ const Card = ({ id, name, image, type, onClose }) => {
       <figcaption>
         <div className={style.name}>{name}</div>
         <div className={style.type}>{type.join(" - ")}</div>
-        {
-          typeof id === "string" && id.includes("-") ? <button onClick={() => onClose(id)}>X</button> : null
-        }
+        {typeof id === "string" && id.includes("-") ? (
+          <button onClick={() => onClose(id)}>X</button>
+        ) : null}
       </figcaption>
     </figure>
   );

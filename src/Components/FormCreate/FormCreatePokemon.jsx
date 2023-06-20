@@ -31,6 +31,7 @@ const FormCreatePokemon = () => {
     setError(validate({ ...form, [event.target.name]: event.target.value }));
   };
 
+  //Mostramos imagenes de todos los pokemones.
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
@@ -53,10 +54,12 @@ const FormCreatePokemon = () => {
   }
 
   const [boton, setBoton] = useState(true);
+  //Verificamos que los inputs no tengan errores.
   const hasErrors = () => {
     return Object.keys(error).some((key) => error[key]);
   };
 
+  //Para saber que esta vacio el input
   const formEmpty = () => {
     return Object.values(form).every((value) => {
       if (typeof value === "string" || Array.isArray(value)) {
@@ -67,12 +70,12 @@ const FormCreatePokemon = () => {
         return true; // Consideramos otros tipos de valores como vacíos
       }
     });
-  }
+  };
 
   useEffect(() => {
     // Actualizar el estado del botón cuando cambien los errores
     setBoton(hasErrors() || formEmpty());
-  }, [error, form]);
+  }, [hasErrors, formEmpty()]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -88,9 +91,10 @@ const FormCreatePokemon = () => {
       weight: 0,
       types: [],
     });
-    window.alert("Pokémon creado.")
+    window.alert("Pokémon successfully created.");
   };
 
+  //Handler del botón para eliminar types seleccionados.
   const handleRemoveType = (index) => {
     const updatedTypes = [...form.types];
     updatedTypes.splice(index, 1);
@@ -109,7 +113,7 @@ const FormCreatePokemon = () => {
         </div>
         <div className={style.formCont}>
           <form onSubmit={handleSubmit}>
-            <div className={style.divInput} /* onChange={handleBoton} */>
+            <div className={style.divInput}>
               <label>Name: </label>
               <input
                 type={"text"}
@@ -215,7 +219,7 @@ const FormCreatePokemon = () => {
             <div className={style.error}>
               {error.weight && <p className={style.warning}>{error.weight}</p>}
             </div>
-            <div className={style.divInput} /* onChange={handleBoton} */>
+            <div className={style.divInput}>
               <label>Type: </label>
               <select onChange={handleSelect}>
                 {types?.map((t, index) => (
@@ -228,7 +232,7 @@ const FormCreatePokemon = () => {
                 <ul>
                   {form.types.map((element, index) => (
                     <li key={index} className={style.mostrarTipos}>
-                      {element.charAt(0).toUpperCase() + element.slice(1) }
+                      {element.charAt(0).toUpperCase() + element.slice(1)}
                       <button onClick={() => handleRemoveType(index)}>x</button>
                     </li>
                   ))}

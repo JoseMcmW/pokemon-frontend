@@ -6,15 +6,15 @@ const Navbar = () => {
   return (
     <nav className={styles.container}>
       <img src={navBrand} alt="title-nav"></img>
-        <NavLink to="/home" className={styles.menu}>
-          Home
-        </NavLink>
-        <NavLink to="/form" className={styles.menu}>
-          Create Pokemon
-        </NavLink>
-				<NavLink to="/" className={styles.menu}>
-          Exit
-        </NavLink>
+      <NavLink to="/home" className={styles.menu}>
+        Home
+      </NavLink>
+      <NavLink to="/form" className={styles.menu}>
+        Create Pokemon
+      </NavLink>
+      <NavLink to="/" className={styles.menu}>
+        Exit
+      </NavLink>
     </nav>
   );
 };

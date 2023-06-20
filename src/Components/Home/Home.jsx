@@ -49,9 +49,10 @@ const Home = () => {
   }
 
   function onClose(id) {
+    //Eliminar Pokemon
     dispatch(deletePokemon(id));
     window.location.href = "http://localhost:3000/home";
-    window.alert("Pokémon Eliminado")
+    window.alert("Pokémon Eliminado");
   }
 
   return (
@@ -64,35 +65,41 @@ const Home = () => {
         <SearchBar refreshHandler={refreshHome} onSearch={handleSearch} />
       </div>
       <div>
-        {
-          currentItems < 1
-          ? (<div className={style.loader}><img src={loader} alt="loader..." /></div>)
-          : (
-            <><div className={style.cardsComponent}>
-                {currentItems &&
-                  currentItems.map((pokemon, index) => {
-                    return (
-                      <>
-                        <Link
-                          to={`/detail/${pokemon.id}`}
-                          className={style.linkDetail}
-                          key={index}
-                        >
-                          <Card
-                            name={pokemon.name}
-                            image={pokemon.image}
-                            type={pokemon.type}
-                            id={pokemon.id}
-                            onClose={onClose} />
-                        </Link>
-                      </>
-                    );
-                  })}
-              </div><Paginate
-                  allPokemons={allPokemonsState.length}
-                  itemsPerPage={itemsPerPage}
-                  paginate={paginate}
-                  currentPage={currentPage} /></>
+        {currentItems < 1 ? (
+          <div className={style.loader}>
+            <img src={loader} alt="loader..." />
+          </div>
+        ) : (
+          <>
+            <div className={style.cardsComponent}>
+              {currentItems &&
+                currentItems.map((pokemon, index) => {
+                  return (
+                    <>
+                      <Link
+                        to={`/detail/${pokemon.id}`}
+                        className={style.linkDetail}
+                        key={index}
+                      >
+                        <Card
+                          name={pokemon.name}
+                          image={pokemon.image}
+                          type={pokemon.type}
+                          id={pokemon.id}
+                          onClose={onClose}
+                        />
+                      </Link>
+                    </>
+                  );
+                })}
+            </div>
+            <Paginate
+              allPokemons={allPokemonsState.length}
+              itemsPerPage={itemsPerPage}
+              paginate={paginate}
+              currentPage={currentPage}
+            />
+          </>
         )}
       </div>
     </div>

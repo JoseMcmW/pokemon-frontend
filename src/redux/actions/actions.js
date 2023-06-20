@@ -5,16 +5,15 @@ import {
   DETAIL_POKEMON,
   CREATE_POKEMON,
   DELETE_POKEMON,
-	ALL_TYPES,
-	FILTER_ORIGIN,
+  ALL_TYPES,
+  FILTER_ORIGIN,
   FILTER_TYPE,
-	ORDER_BY_ATTACK,
-	ORDER_BY_ALPHABETIC
+  ORDER_BY_ATTACK,
+  ORDER_BY_ALPHABETIC,
 } from "../actions-types/actionsTypes";
 
 const URL_POKE = "http://localhost:3001/pokemons/";
 const URL_TYPE = "http://localhost:3001/types";
-
 
 export const getAllPokemons = () => {
   return async function (dispatch) {
@@ -30,7 +29,9 @@ export const getAllPokemons = () => {
 export const searchPokemons = (name) => {
   return async function (dispatch) {
     try {
-      const search = await axios.get(`http://localhost:3001/pokemons/name?name=${name}`);
+      const search = await axios.get(
+        `http://localhost:3001/pokemons/name?name=${name}`
+      );
       return dispatch({ type: SEARCH_POKEMONS, payload: search.data });
     } catch (error) {
       throw error;
@@ -52,56 +53,60 @@ export const detailPokemon = (id) => {
 export const createPokemon = (body) => {
   return async function () {
     try {
-      const create = await axios.post(`${URL_POKE}`, body)
+      const create = await axios.post(`${URL_POKE}`, body);
       return create;
     } catch (error) {
-      throw error
+      throw error;
     }
-  }
-}
+  };
+};
 
 export const deletePokemon = (id) => {
   return async function () {
     try {
-      const deletePokemon = await axios.delete(`${URL_POKE}${id}`)
+      const deletePokemon = await axios.delete(`${URL_POKE}${id}`);
       return deletePokemon;
     } catch (error) {
-      throw error
+      throw error;
     }
-  }
-}
+  };
+};
 
 export const typesPokemon = () => {
   return async function (dispatch) {
     try {
       const types = await axios.get(`${URL_TYPE}`);
-      return dispatch({ type: ALL_TYPES, payload: types.data })
+      return dispatch({ type: ALL_TYPES, payload: types.data });
     } catch (error) {
-      throw error
+      throw error;
     }
-  }
-}
+  };
+};
 
 export const filterOrigin = (payload) => {
   return {
-    type: FILTER_ORIGIN, payload
-  }
-}
+    type: FILTER_ORIGIN,
+    payload,
+  };
+};
 
 export const filterType = (payload) => {
   return {
-    type: FILTER_TYPE, payload
-  }
-}
+    type: FILTER_TYPE,
+    payload,
+  };
+};
 
 export const orderByAttack = (payload) => {
   return {
-    type: ORDER_BY_ATTACK, payload
-  }
-}
+    type: ORDER_BY_ATTACK,
+    payload,
+  };
+};
 
 export const orderAlphabetic = (payload) => {
   return {
-    type: ORDER_BY_ALPHABETIC, payload
-  }
-}
+    type: ORDER_BY_ALPHABETIC,
+    payload,
+  };
+};

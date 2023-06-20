@@ -14,10 +14,11 @@ export default function SearchBar({ refreshHandler, onSearch }) {
   function handleSubmit(event) {
     event.preventDefault();
     dispatch(searchPokemons(name));
-    onSearch(name)
+    onSearch(name);
     setName("");
   }
 
+  //Búsqueda en el Search presionando la tecla enter
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();

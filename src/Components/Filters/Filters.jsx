@@ -12,12 +12,12 @@ export const FilteredByOrigin = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllPokemons())
+    dispatch(getAllPokemons());
   }, [dispatch]);
 
   const handleOrigin = (event) => {
-    dispatch(filterOrigin(event.target.value))
-  }
+    dispatch(filterOrigin(event.target.value));
+  };
 
   return (
     <div className={style.originContainer}>
@@ -33,15 +33,15 @@ export const FilteredByOrigin = () => {
 
 export const FilteredByType = () => {
   const dispatch = useDispatch();
-  const allTypes = useSelector((state) => state.types)
+  const allTypes = useSelector((state) => state.types);
 
   useEffect(() => {
-    dispatch(typesPokemon())
+    dispatch(typesPokemon());
   }, [dispatch]);
 
   const handleType = (event) => {
     event.preventDefault();
-    dispatch(filterType(event.target.value))
+    dispatch(filterType(event.target.value));
   };
 
   return (
@@ -49,13 +49,11 @@ export const FilteredByType = () => {
       <label>Select Type:</label>
       <select onChange={(event) => handleType(event)}>
         <option value="All">All</option>
-        {
-          allTypes.map((type, index) => (
-            <option value={type.name} key={index}>
-              {type.name.charAt(0).toUpperCase() + type.name.slice(1)}
-            </option>
-          ))
-        }
+        {allTypes.map((type, index) => (
+          <option value={type.name} key={index}>
+            {type.name.charAt(0).toUpperCase() + type.name.slice(1)}
+          </option>
+        ))}
       </select>
     </div>
   );
