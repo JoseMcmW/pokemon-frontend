@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b6f88e62.css",
+    "main.js": "/static/js/main.7552e4d9.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/PGO_S11_LaunchTrailer_16x9_en.mp4": "/static/media/PGO_S11_LaunchTrailer_16x9_en.1f6402b70c51477a8595.mp4",
+    "static/media/International_Pokémon_logo.svg.png": "/static/media/International_Pokémon_logo.svg.e93152c8b9160d3198d7.png",
+    "static/media/loader.gif": "/static/media/loader.c663e428e8c86609787b.gif",
+    "index.html": "/index.html",
+    "main.b6f88e62.css.map": "/static/css/main.b6f88e62.css.map",
+    "main.7552e4d9.js.map": "/static/js/main.7552e4d9.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6f88e62.css",
+    "static/js/main.7552e4d9.js"
+  ]
+}
