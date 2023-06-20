@@ -3,6 +3,7 @@ import {
   SEARCH_POKEMONS,
   DETAIL_POKEMON,
   CREATE_POKEMON,
+  DELETE_POKEMON,
 	ALL_TYPES,
 	FILTER_ORIGIN,
   FILTER_TYPE,
@@ -38,6 +39,10 @@ const pokemonsReducer = (state = initialState, action) => {
     case CREATE_POKEMON:
       return {
         ...state
+      }
+    case DELETE_POKEMON:
+      return {
+        ...state,
       }
     case ALL_TYPES:
       return{

@@ -20,6 +20,15 @@
   text-align: center;
 }
 
+.imageContainer h3 {
+  font-size: 2em;
+  color: #F2B705;
+  background-color: #162D59;
+  text-shadow: 1px 1px 10px #2C7BBF;
+  width: 350px;
+  text-align: center;
+}
+
 .imageContainer {
   width: 50%;
   height: 100%;
@@ -44,11 +53,15 @@
   align-items: center;
 }
 
+.formCont {
+  width: 100%;
+}
+
 .divInput {
-  margin-top: 1em;
+  margin-top: 0.5em;
   display: flex;
   align-items: center;
-  justify-content: right;
+  justify-content: center;
 }
 
 .divInput label {
@@ -65,4 +78,50 @@
 
 .divInput select {
   width: 175px;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error p {
+  text-align: right;
+  font-size: 0.5em;
+  color: #F2B705;
+  background-color: #ff0000;
+  width: fit-content;
+}
+
+ul {
+  list-style: none;
+}
+
+.divButtonForm {
+text-align: center;
+}
+
+.mostrarTipos {
+  margin-left: 1em;
+}
+
+.mostrarTipos button {
+  margin-left: 0.5em;
+  background-color: #162D59;
+  color: red;
+}
+
+.butonForm {
+  height: 2em;
+  width: 5em;
+  margin-left: 0.5em;
+  background-color: #162D59;
+  color: #F2B705;
+  border-radius: 5px;
+  
+}
+
+.butonForm:hover {
+  box-shadow: 1px 1px 15px #2C7BBF;
 }

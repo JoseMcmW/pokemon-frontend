@@ -2,6 +2,7 @@ export const ALL_POKEMONS = "ALL_POKEMONS";
 export const SEARCH_POKEMONS = "SEARCH_POKEMONS";
 export const DETAIL_POKEMON = "DETAIL_POKEMON";
 export const CREATE_POKEMON = "CREATE_POKEMON";
+export const DELETE_POKEMON = "DELETE_POKEMON";
 export const ALL_TYPES = "ALL_TYPES";
 export const FILTER_TYPE = "FILTER_TYPE";
 export const FILTER_ORIGIN = "FILTER_ORIGIN"; //De la base de datos o de la API.

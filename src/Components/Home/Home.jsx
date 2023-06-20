@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getAllPokemons, searchPokemons } from "../../redux/actions/actions";
+import {
+  deletePokemon,
+  getAllPokemons,
+  searchPokemons,
+} from "../../redux/actions/actions";
 import style from "./home.module.css";
 import Card from "../Card/Card";
 import SearchBar from "../SearchPokemon/SearchPokemon";
 import { FilteredByOrigin, FilteredByType } from "../Filters/Filters";
 import { SortByAttack, SortByAlphabet } from "../Sort/Sort";
 import Paginate from "../Paginate/Paginate";
+import loader from "../../img/loader.gif";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -43,6 +48,12 @@ const Home = () => {
     setCurrentPage(1); // Reiniciar la página actual al realizar una búsqueda.
   }
 
+  function onClose(id) {
+    dispatch(deletePokemon(id));
+    window.location.href = "http://localhost:3000/home";
+    window.alert("Pokémon Eliminado")
+  }
+
   return (
     <div className={style.homeContainer}>
       <div className={style.filtersComponent}>
@@ -50,32 +61,40 @@ const Home = () => {
         <SortByAlphabet />
         <FilteredByOrigin />
         <FilteredByType />
-        <SearchBar refreshHandler={refreshHome} onSearch={handleSearch}/>
+        <SearchBar refreshHandler={refreshHome} onSearch={handleSearch} />
       </div>
-      <div className={style.cardsComponent}>
-        {currentItems &&
-          currentItems.map((pokemon, index) => {
-            return (
-              <Link
-                to={`/detail/${pokemon.id}`}
-                className={style.linkDetail}
-                key={index}
-              >
-                <Card
-                  name={pokemon.name}
-                  image={pokemon.image}
-                  type={pokemon.type}
-                />
-              </Link>
-            );
-          })}
+      <div>
+        {
+          currentItems < 1
+          ? (<div className={style.loader}><img src={loader} alt="loader..." /></div>)
+          : (
+            <><div className={style.cardsComponent}>
+                {currentItems &&
+                  currentItems.map((pokemon, index) => {
+                    return (
+                      <>
+                        <Link
+                          to={`/detail/${pokemon.id}`}
+                          className={style.linkDetail}
+                          key={index}
+                        >
+                          <Card
+                            name={pokemon.name}
+                            image={pokemon.image}
+                            type={pokemon.type}
+                            id={pokemon.id}
+                            onClose={onClose} />
+                        </Link>
+                      </>
+                    );
+                  })}
+              </div><Paginate
+                  allPokemons={allPokemonsState.length}
+                  itemsPerPage={itemsPerPage}
+                  paginate={paginate}
+                  currentPage={currentPage} /></>
+        )}
       </div>
-      <Paginate
-        allPokemons={allPokemonsState.length}
-        itemsPerPage={itemsPerPage}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
     </div>
   );
 };

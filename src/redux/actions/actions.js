@@ -4,6 +4,7 @@ import {
   SEARCH_POKEMONS,
   DETAIL_POKEMON,
   CREATE_POKEMON,
+  DELETE_POKEMON,
 	ALL_TYPES,
 	FILTER_ORIGIN,
   FILTER_TYPE,
@@ -41,7 +42,6 @@ export const detailPokemon = (id) => {
   return async function (dispatch) {
     try {
       const detail = await axios.get(`${URL_POKE}${id}`);
-      console.log('detail.data :>> ', detail.data[0]);
       return dispatch({ type: DETAIL_POKEMON, payload: detail.data });
     } catch (error) {
       throw error;
@@ -50,10 +50,21 @@ export const detailPokemon = (id) => {
 };
 
 export const createPokemon = (body) => {
-  return async function (dispatch) {
+  return async function () {
     try {
       const create = await axios.post(`${URL_POKE}`, body)
-      return dispatch({ type: CREATE_POKEMON, payload: create.data })
+      return create;
+    } catch (error) {
+      throw error
+    }
+  }
+}
+
+export const deletePokemon = (id) => {
+  return async function () {
+    try {
+      const deletePokemon = await axios.delete(`${URL_POKE}${id}`)
+      return deletePokemon;
     } catch (error) {
       throw error
     }

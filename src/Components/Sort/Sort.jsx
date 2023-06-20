@@ -23,7 +23,7 @@ export const SortByAttack = () => {
 
   return (
     <div className={style.containerAttack}>
-      <label>Attack</label>
+      <label>Attack:</label>
       <select onChange={handleSortAttack}>
         <option>Choose</option>
         <option value="Descending">Weak</option>
@@ -49,7 +49,7 @@ export const SortByAlphabet = () => {
 
   return (
     <div className={style.containerAlphabet}>
-      <label>Orden Alfabetico</label>
+      <label>Alfabetic:</label>
       <select onChange={handleSortAlphabetic}>
         <option>Choose</option>
         <option value="A to Z">A - Z</option>
