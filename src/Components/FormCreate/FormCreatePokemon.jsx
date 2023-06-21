@@ -60,6 +60,7 @@ const FormCreatePokemon = () => {
   };
 
   //Para saber que esta vacio el input
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const formEmpty = () => {
     return Object.values(form).every((value) => {
       if (typeof value === "string" || Array.isArray(value)) {
@@ -75,7 +76,7 @@ const FormCreatePokemon = () => {
   useEffect(() => {
     // Actualizar el estado del botón cuando cambien los errores
     setBoton(hasErrors() || formEmpty());
-  }, [hasErrors, formEmpty()]);
+  }, [formEmpty, hasErrors]);
 
   const handleSubmit = (event) => {
     event.preventDefault();

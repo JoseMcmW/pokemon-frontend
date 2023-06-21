@@ -8,8 +8,8 @@ import store from './redux/store/store';
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
 
-/* axios.defaults.baseURL = "https://pokemon-backend-production-960e.up.railway.app/" */
-axios.defaults.baseURL = "http://localhost:3001"
+axios.defaults.baseURL = "https://pokemon-backend-production-960e.up.railway.app/"
+/* axios.defaults.baseURL = "http://localhost:3001/" */
 
 ReactDOM.render(
   <Provider store={store}>
