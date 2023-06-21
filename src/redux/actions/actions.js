@@ -15,7 +15,7 @@ import {
 export const getAllPokemons = () => {
   return async function (dispatch) {
     try {
-      const pokemons = await axios.get("/pokemons");
+      const pokemons = await axios.get("pokemons");
       return dispatch({ type: ALL_POKEMONS, payload: pokemons.data });
     } catch (error) {
       throw error;
@@ -39,7 +39,7 @@ export const searchPokemons = (name) => {
 export const detailPokemon = (id) => {
   return async function (dispatch) {
     try {
-      const detail = await axios.get(`/pokemons/${id}`);
+      const detail = await axios.get(`pokemons/${id}`);
       return dispatch({ type: DETAIL_POKEMON, payload: detail.data });
     } catch (error) {
       throw error;
@@ -50,7 +50,7 @@ export const detailPokemon = (id) => {
 export const createPokemon = (body) => {
   return async function () {
     try {
-      const create = await axios.post(`/pokemons/`, body);
+      const create = await axios.post(`pokemons/`, body);
       return create;
     } catch (error) {
       throw error;
@@ -61,7 +61,7 @@ export const createPokemon = (body) => {
 export const deletePokemon = (id) => {
   return async function () {
     try {
-      const deletePokemon = await axios.delete(`/pokemons/${id}`);
+      const deletePokemon = await axios.delete(`pokemons/${id}`);
       return deletePokemon;
     } catch (error) {
       throw error;
@@ -72,7 +72,7 @@ export const deletePokemon = (id) => {
 export const typesPokemon = () => {
   return async function (dispatch) {
     try {
-      const types = await axios.get(`/types`);
+      const types = await axios.get(`types`);
       return dispatch({ type: ALL_TYPES, payload: types.data });
     } catch (error) {
       throw error;

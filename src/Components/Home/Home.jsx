@@ -51,7 +51,7 @@ const Home = () => {
   function onClose(id) {
     //Eliminar Pokemon
     dispatch(deletePokemon(id));
-    window.location.href = "http://localhost:3000/home";
+    window.location.href = "https://pokemon-frontend-production.up.railway.app/";
     window.alert("Pokémon Eliminado");
   }
 
