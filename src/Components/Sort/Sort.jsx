@@ -9,7 +9,7 @@ import style from "./sort.module.css";
 
 export const SortByAttack = () => {
   const dispatch = useDispatch();
-  const [reload, setReload] = useState(false);
+  const [/* reload */, setReload] = useState(false);
 
   useEffect(() => {
     dispatch(getAllPokemons());
