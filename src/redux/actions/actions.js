@@ -15,7 +15,7 @@ import {
 export const getAllPokemons = () => {
   return async function (dispatch) {
     try {
-      const pokemons = await axios.get("https://pokemon-backend-production-960e.up.railway.app/pokemons");
+      const pokemons = await axios.get("http://pokemon-backend-production-960e.up.railway.app/pokemons");
       return dispatch({ type: ALL_POKEMONS, payload: pokemons.data });
     } catch (error) {
       throw error;
@@ -27,7 +27,7 @@ export const searchPokemons = (name) => {
   return async function (dispatch) {
     try {
       const search = await axios.get(
-        `https://pokemon-backend-production-960e.up.railway.app/pokemons/name?name=${name}`
+        `http://pokemon-backend-production-960e.up.railway.app/pokemons/name?name=${name}`
       );
       return dispatch({ type: SEARCH_POKEMONS, payload: search.data });
     } catch (error) {
@@ -39,7 +39,7 @@ export const searchPokemons = (name) => {
 export const detailPokemon = (id) => {
   return async function (dispatch) {
     try {
-      const detail = await axios.get(`https://pokemon-backend-production-960e.up.railway.app/pokemons/${id}`);
+      const detail = await axios.get(`http://pokemon-backend-production-960e.up.railway.app/pokemons/${id}`);
       return dispatch({ type: DETAIL_POKEMON, payload: detail.data });
     } catch (error) {
       throw error;
@@ -50,7 +50,7 @@ export const detailPokemon = (id) => {
 export const createPokemon = (body) => {
   return async function () {
     try {
-      const create = await axios.post(`https://pokemon-backend-production-960e.up.railway.app/pokemons/`, body);
+      const create = await axios.post(`http://pokemon-backend-production-960e.up.railway.app/pokemons/`, body);
       return create;
     } catch (error) {
       throw error;
@@ -61,7 +61,7 @@ export const createPokemon = (body) => {
 export const deletePokemon = (id) => {
   return async function () {
     try {
-      const deletePokemon = await axios.delete(`https://pokemon-backend-production-960e.up.railway.app/pokemons/${id}`);
+      const deletePokemon = await axios.delete(`http://pokemon-backend-production-960e.up.railway.app/pokemons/${id}`);
       return deletePokemon;
     } catch (error) {
       throw error;
@@ -72,7 +72,7 @@ export const deletePokemon = (id) => {
 export const typesPokemon = () => {
   return async function (dispatch) {
     try {
-      const types = await axios.get(`https://pokemon-backend-production-960e.up.railway.app/types`);
+      const types = await axios.get(`http://pokemon-backend-production-960e.up.railway.app/types`);
       return dispatch({ type: ALL_TYPES, payload: types.data });
     } catch (error) {
       throw error;
