@@ -13,29 +13,31 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .linkDetail {
   text-decoration: none;
   color: inherit;
   width: calc(21%);
-  display: grid;
-  border-radius: 1rem;
   margin-top: 1em;
-  cursor: pointer;
-  height: 200px;
-  margin-right: 10px;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .filtersComponent {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   flex-direction: row ;
   padding-bottom: 1.5em;
   background-color: white;
   padding-top: 2em;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  width: 350px;
 }
 
 .loader {

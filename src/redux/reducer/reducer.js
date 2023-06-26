@@ -54,19 +54,30 @@ const pokemonsReducer = (state = initialState, action) => {
       const pokemonsDB = pokemonsAll.filter((pokemon) =>
         pokemon.id.toString().includes("-")
       );
+
       const pokemonsAPI = pokemonsAll.filter(
         (pokemon) => typeof pokemon.id === "number"
       );
-      const filteredPokemons =
-        action.payload === "Api"
-          ? pokemonsAPI
-          : action.payload === "Data Base"
-          ? pokemonsDB
-          : pokemonsAll;
+
+      let filteredPokemons;
+
+      if (action.payload === "DB") {
+        if (pokemonsDB.length === 0) {
+          window.alert("No hay pokemones en la Base de Datos");
+          return state; // No hay necesidad de continuar con la actualización del estado
+        }
+        filteredPokemons = pokemonsDB;
+      } else if (action.payload === "Api") {
+        filteredPokemons = pokemonsAPI;
+      } else {
+        filteredPokemons = pokemonsAll;
+      }
+
       return {
         ...state,
         pokemons: filteredPokemons,
       };
+
     case FILTER_TYPE:
       const types = state.allPokemons;
       let filterTypes =
@@ -101,7 +112,7 @@ const pokemonsReducer = (state = initialState, action) => {
           if (a.name < b.name) return -1;
           if (a.name > b.name) return 1;
           return 0;
-        } else {
+        } else if (action.payload === "Z to A"){
           if (a.name < b.name) return 1;
           if (a.name > b.name) return -1;
           return 0;

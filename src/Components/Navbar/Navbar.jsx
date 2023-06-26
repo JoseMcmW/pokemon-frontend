@@ -5,7 +5,9 @@ import navBrand from "../../img/International_Pokémon_logo.svg.png";
 const Navbar = () => {
   return (
     <nav className={styles.container}>
+      <NavLink to="/home" >
       <img src={navBrand} alt="title-nav"></img>
+      </NavLink>
       <NavLink to="/home" className={styles.menu}>
         Home
       </NavLink>

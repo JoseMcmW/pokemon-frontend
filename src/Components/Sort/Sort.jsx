@@ -1,31 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import {
-  getAllPokemons,
   orderByAttack,
   orderAlphabetic,
 } from "../../redux/actions/actions";
 import style from "./sort.module.css";
 
-export const SortByAttack = () => {
+export const SortByAttack = ({setPaginatedSort}) => {
   const dispatch = useDispatch();
-  const [/* reload */, setReload] = useState(false);
 
   useEffect(() => {
-    dispatch(getAllPokemons());
+    dispatch(orderByAttack());
   }, [dispatch]);
 
   const handleSortAttack = (event) => {
     event.preventDefault();
     dispatch(orderByAttack(event.target.value));
-    setReload((prevState) => !prevState);
+    setPaginatedSort(event.target.value)
   };
 
   return (
     <div className={style.containerAttack}>
       <label>Attack:</label>
       <select onChange={handleSortAttack}>
-        <option>Choose</option>
+        <option value="All">All</option>
         <option value="Descending">Strong</option>
         <option value="Ascending">Weak</option>
       </select>
@@ -33,25 +31,24 @@ export const SortByAttack = () => {
   );
 };
 
-export const SortByAlphabet = () => {
+export const SortByAlphabet = ({setPaginatedSort}) => {
   const dispatch = useDispatch();
-  const [, /* reload */ setReload] = useState(false);
 
   useEffect(() => {
-    dispatch(getAllPokemons());
+    dispatch(orderAlphabetic());
   }, [dispatch]);
 
   const handleSortAlphabetic = (event) => {
     event.preventDefault();
     dispatch(orderAlphabetic(event.target.value));
-    setReload((prevState) => !prevState);
+    setPaginatedSort(event.target.value)
   };
 
   return (
     <div className={style.containerAlphabet}>
       <label>Alfabetic:</label>
       <select onChange={handleSortAlphabetic}>
-        <option>Choose</option>
+        <option value="All">All</option>
         <option value="A to Z">A - Z</option>
         <option value="Z to A">Z - A</option>
       </select>

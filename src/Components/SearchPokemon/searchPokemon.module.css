@@ -1,5 +1,7 @@
 .searchContainer {
-  margin-left: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 label {
@@ -25,8 +27,9 @@ label {
 
 .buttonSearch {
   height: 2em;
-  width: 5em;
+  width: 2em;
   margin-left: 0.5em;
+  margin-right: 0.5em;
   background-color: #162D59;
   color: #F2B705;
   border-radius: 5px;
