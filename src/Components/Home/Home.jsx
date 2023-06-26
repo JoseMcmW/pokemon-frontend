@@ -39,29 +39,53 @@ const Home = () => {
 
   function refreshHome(event) {
     event.preventDefault();
-    setCurrentPage(1); // Reiniciar la página actual al actualizar los datos
-    dispatch(getAllPokemons());
+    window.location.reload();
   }
 
   function handleSearch(name) {
+    setCurrentPage(1);
     dispatch(searchPokemons(name));
-    setCurrentPage(1); // Reiniciar la página actual al realizar una búsqueda.
   }
 
-  function onClose(id) {
+  function setPaginatedFiltered(event) {
+    if (event === "DB" || event === "Api") {
+      setCurrentPage(1);
+    } else {
+      setCurrentPage(1);
+    }
+  }
+
+  function setPaginatedSort(event) {
+    if (event === "Descending" || event === "Ascending") {
+      setCurrentPage(1);
+    }
+    if (event === "A to Z" || event === "Z to A") {
+      setCurrentPage(1);
+    }
+  }
+
+  function deletePoke(id, event) {
     //Eliminar Pokemon
+    event.preventDefault();
     dispatch(deletePokemon(id));
-    window.location.href = "https://pokemon-frontend-production.up.railway.app/";
-    window.alert("Pokémon Eliminado");
+    window.location.href = "http://localhost:3000/home";
   }
 
   return (
     <div className={style.homeContainer}>
       <div className={style.filtersComponent}>
-        <SortByAttack />
-        <SortByAlphabet />
-        <FilteredByOrigin />
-        <FilteredByType />
+        <div className={style.filters}>
+          <h3>Order by:</h3>
+          <SortByAttack setPaginatedSort={setPaginatedSort} />
+          <SortByAlphabet setPaginatedSort={setPaginatedSort} />
+        </div>
+        <div className={style.filters}>
+          <h3>Filter by:</h3>
+          <FilteredByOrigin
+            setPaginatedFiltered={setPaginatedFiltered}
+          />
+          <FilteredByType setPaginatedFiltered={setPaginatedFiltered} />
+        </div>
         <SearchBar refreshHandler={refreshHome} onSearch={handleSearch} />
       </div>
       <div>
@@ -75,21 +99,20 @@ const Home = () => {
               {currentItems &&
                 currentItems.map((pokemon, index) => {
                   return (
-                    <>
-                      <Link
-                        to={`/detail/${pokemon.id}`}
-                        className={style.linkDetail}
-                        key={index}
-                      >
-                        <Card
-                          name={pokemon.name}
-                          image={pokemon.image}
-                          type={pokemon.type}
-                          id={pokemon.id}
-                          onClose={onClose}
-                        />
-                      </Link>
-                    </>
+                    <Link
+                      to={`/detail/${pokemon.id}`}
+                      className={style.linkDetail}
+                      key={index}
+                    >
+                      <Card
+                        name={pokemon.name}
+                        image={pokemon.image}
+                        type={pokemon.type}
+                        attack={pokemon.attack}
+                        id={pokemon.id}
+                        deletePoke={deletePoke}
+                      />
+                    </Link>
                   );
                 })}
             </div>

@@ -15,7 +15,7 @@ import {
 export const getAllPokemons = () => {
   return async function (dispatch) {
     try {
-      const pokemons = await axios.get("https://pokemon-backend-production-960e.up.railway.app/pokemons");
+      const pokemons = await axios.get("pokemons");
       return dispatch({ type: ALL_POKEMONS, payload: pokemons.data });
     } catch (error) {
       throw error;
@@ -25,13 +25,22 @@ export const getAllPokemons = () => {
 
 export const searchPokemons = (name) => {
   return async function (dispatch) {
+    if(!name) {
+      return window.alert('Debes ingresar el nombre de un un pokemon')
+    }
     try {
       const search = await axios.get(
-        `https://pokemon-backend-production-960e.up.railway.app/pokemons/name?name=${name}`
+        `pokemons/name?name=${name}`
       );
+
       return dispatch({ type: SEARCH_POKEMONS, payload: search.data });
     } catch (error) {
-      throw error;
+      if(error.message === 'Request failed with status code 500') {
+        return window.alert(`${error.message}: El Pokémon no existe.`)
+      }
+      if(error.message === 'Network Error') {
+        return window.alert(`${error.message}: No se pudo establecer conexión con el servidor. Por favor, inténtalo de nuevo más tarde.'`)
+      }
     }
   };
 };
@@ -39,7 +48,7 @@ export const searchPokemons = (name) => {
 export const detailPokemon = (id) => {
   return async function (dispatch) {
     try {
-      const detail = await axios.get(`https://pokemon-backend-production-960e.up.railway.app/pokemons/${id}`);
+      const detail = await axios.get(`pokemons/${id}`);
       return dispatch({ type: DETAIL_POKEMON, payload: detail.data });
     } catch (error) {
       throw error;
@@ -50,10 +59,11 @@ export const detailPokemon = (id) => {
 export const createPokemon = (body) => {
   return async function () {
     try {
-      const create = await axios.post(`https://pokemon-backend-production-960e.up.railway.app/pokemons/`, body);
+      const create = await axios.post(`pokemons/`, body);
+      window.alert("Pokémon successfully created.");
       return create;
     } catch (error) {
-      throw error;
+      window.alert(`${error.message}: 'El nombre del Pokémon existe o no se pudo establecer conexión con el servidor. Por favor, inténtalo de nuevo más tarde.'`)
     }
   };
 };
@@ -61,7 +71,8 @@ export const createPokemon = (body) => {
 export const deletePokemon = (id) => {
   return async function () {
     try {
-      const deletePokemon = await axios.delete(`https://pokemon-backend-production-960e.up.railway.app/pokemons/${id}`);
+      const deletePokemon = await axios.delete(`pokemons/${id}`);
+      window.alert(deletePokemon.data.message);
       return deletePokemon;
     } catch (error) {
       throw error;
@@ -72,7 +83,7 @@ export const deletePokemon = (id) => {
 export const typesPokemon = () => {
   return async function (dispatch) {
     try {
-      const types = await axios.get(`https://pokemon-backend-production-960e.up.railway.app/types`);
+      const types = await axios.get(`types`);
       return dispatch({ type: ALL_TYPES, payload: types.data });
     } catch (error) {
       throw error;

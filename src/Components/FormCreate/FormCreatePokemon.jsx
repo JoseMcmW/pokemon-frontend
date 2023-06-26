@@ -46,15 +46,22 @@ const FormCreatePokemon = () => {
     dispatch(typesPokemon());
   }, [dispatch]);
 
-  function handleSelect(e) {
+  function handleSelect(event) {
+    const selectedType = event.target.options[event.target.selectedIndex].value;
+    if (form.types.includes(selectedType)) {
+      return window.alert("El tipo ya fue agregado.");
+    }
     setForm({
       ...form,
-      types: [...form.types, e.target.value],
+      types: [...form.types, event.target.value],
     });
+
+    setError(validate({ ...form, types: [...form.types, event.target.value] }));
   }
 
   const [boton, setBoton] = useState(true);
   //Verificamos que los inputs no tengan errores.
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const hasErrors = () => {
     return Object.keys(error).some((key) => error[key]);
   };
@@ -92,7 +99,6 @@ const FormCreatePokemon = () => {
       weight: 0,
       types: [],
     });
-    window.alert("Pokémon successfully created.");
   };
 
   //Handler del botón para eliminar types seleccionados.
@@ -147,7 +153,7 @@ const FormCreatePokemon = () => {
                 value={form.attack}
                 onChange={handleForm}
                 name={"attack"}
-                placeholder="0-99"
+                placeholder="0-130"
               />
             </div>
             <div className={style.error}>
@@ -160,7 +166,7 @@ const FormCreatePokemon = () => {
                 value={form.life}
                 onChange={handleForm}
                 name={"life"}
-                placeholder="0-99"
+                placeholder="0-130"
               />
             </div>
             <div className={style.error}>
@@ -169,7 +175,7 @@ const FormCreatePokemon = () => {
             <div className={style.divInput}>
               <label>Defense: </label>
               <input
-                placeholder="0-99"
+                placeholder="0-130"
                 type={"number"}
                 value={form.defense}
                 onChange={handleForm}
@@ -184,7 +190,7 @@ const FormCreatePokemon = () => {
             <div className={style.divInput}>
               <label>Speed: </label>
               <input
-                placeholder="0-99"
+                placeholder="0-130"
                 type={"number"}
                 value={form.speed}
                 onChange={handleForm}
@@ -197,7 +203,7 @@ const FormCreatePokemon = () => {
             <div className={style.divInput}>
               <label>Height: </label>
               <input
-                placeholder="0-99"
+                placeholder="0-130"
                 type={"number"}
                 value={form.height}
                 onChange={handleForm}
@@ -210,7 +216,7 @@ const FormCreatePokemon = () => {
             <div className={style.divInput}>
               <label>Weight: </label>
               <input
-                placeholder="0-99"
+                placeholder="0-130"
                 type={"number"}
                 value={form.weight}
                 onChange={handleForm}
@@ -223,9 +229,9 @@ const FormCreatePokemon = () => {
             <div className={style.divInput}>
               <label>Type: </label>
               <select onChange={handleSelect}>
-                {types?.map((t, index) => (
-                  <option key={index} value={t.name}>
-                    {t.name.charAt(0).toUpperCase() + t.name.slice(1)}
+                {types?.map((type, index) => (
+                  <option key={index} value={type.name}>
+                    {type.name.charAt(0).toUpperCase() + type.name.slice(1)}
                   </option>
                 ))}
               </select>
