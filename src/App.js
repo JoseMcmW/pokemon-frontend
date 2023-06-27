@@ -5,6 +5,8 @@ import Home from './Components/Home/Home.jsx';
 import Navbar from './Components/Navbar/Navbar';
 import FormCreatePokemon from './Components/FormCreate/FormCreatePokemon.jsx';
 import DetailPokemon from './Components/Detail/DetailPokemon.jsx';
+import UpdatePokemon from './Components/UpdatePokemon/UpdatePokemon';
+
 
 function App() {
   const location = useLocation();
@@ -19,6 +21,7 @@ function App() {
           <Route path='/home' element={<Home/>}/>
           <Route path='/form' element={<FormCreatePokemon/>}/>
           <Route path='/detail/:id' element={<DetailPokemon/>}/>
+          <Route path='/update/:id' element={<UpdatePokemon/>}/>
         </Routes>
       </div>
   );

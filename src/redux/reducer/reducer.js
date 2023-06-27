@@ -4,6 +4,7 @@ import {
   DETAIL_POKEMON,
   CREATE_POKEMON,
   DELETE_POKEMON,
+  UPDATE_POKEMONS,
   ALL_TYPES,
   FILTER_ORIGIN,
   FILTER_TYPE,
@@ -41,6 +42,10 @@ const pokemonsReducer = (state = initialState, action) => {
         ...state,
       };
     case DELETE_POKEMON:
+      return {
+        ...state,
+      };
+    case UPDATE_POKEMONS:
       return {
         ...state,
       };

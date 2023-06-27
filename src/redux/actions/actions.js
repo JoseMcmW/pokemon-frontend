@@ -5,6 +5,7 @@ import {
   DETAIL_POKEMON,
 /*   CREATE_POKEMON,
   DELETE_POKEMON, */
+  UPDATE_POKEMONS,
   ALL_TYPES,
   FILTER_ORIGIN,
   FILTER_TYPE,
@@ -74,6 +75,18 @@ export const deletePokemon = (id) => {
       const deletePokemon = await axios.delete(`pokemons/${id}`);
       window.alert(deletePokemon.data.message);
       return deletePokemon;
+    } catch (error) {
+      throw error;
+    }
+  };
+};
+
+export const updatePokemon = (id, body) => {
+  return async function (dispatch) {
+    try {
+      const updatePokemon = await axios.put(`pokemons/${id}`, body);
+      window.alert(updatePokemon.data.message)
+      return dispatch({ type: UPDATE_POKEMONS, payload: updatePokemon.data });
     } catch (error) {
       throw error;
     }
