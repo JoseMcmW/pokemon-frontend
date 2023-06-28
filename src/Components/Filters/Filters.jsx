@@ -7,7 +7,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import style from "./filters.module.css";
 
-export const FilteredByOrigin = ({setPaginatedFiltered }) => {
+export const FilteredByOrigin = ({ setPaginatedFiltered }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ export const FilteredByOrigin = ({setPaginatedFiltered }) => {
 
   const handleOrigin = (event) => {
     dispatch(filterOrigin(event.target.value));
-    setPaginatedFiltered(event.target.value)
+    setPaginatedFiltered(event.target.value);
   };
 
   return (
@@ -31,7 +31,7 @@ export const FilteredByOrigin = ({setPaginatedFiltered }) => {
   );
 };
 
-export const FilteredByType = ({setPaginatedFiltered}) => {
+export const FilteredByType = ({ setPaginatedFiltered }) => {
   const dispatch = useDispatch();
   const allTypes = useSelector((state) => state.types);
 
@@ -42,7 +42,7 @@ export const FilteredByType = ({setPaginatedFiltered}) => {
   const handleType = (event) => {
     event.preventDefault();
     dispatch(filterType(event.target.value));
-    setPaginatedFiltered(event.target.value)
+    setPaginatedFiltered(event.target.value);
   };
 
   return (

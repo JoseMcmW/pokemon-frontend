@@ -81,9 +81,7 @@ const Home = () => {
         </div>
         <div className={style.filters}>
           <h3>Filter by:</h3>
-          <FilteredByOrigin
-            setPaginatedFiltered={setPaginatedFiltered}
-          />
+          <FilteredByOrigin setPaginatedFiltered={setPaginatedFiltered} />
           <FilteredByType setPaginatedFiltered={setPaginatedFiltered} />
         </div>
         <SearchBar refreshHandler={refreshHome} onSearch={handleSearch} />

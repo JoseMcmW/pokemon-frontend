@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import {
-  orderByAttack,
-  orderAlphabetic,
-} from "../../redux/actions/actions";
+import { orderByAttack, orderAlphabetic } from "../../redux/actions/actions";
 import style from "./sort.module.css";
 
-export const SortByAttack = ({setPaginatedSort}) => {
+export const SortByAttack = ({ setPaginatedSort }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,7 +13,7 @@ export const SortByAttack = ({setPaginatedSort}) => {
   const handleSortAttack = (event) => {
     event.preventDefault();
     dispatch(orderByAttack(event.target.value));
-    setPaginatedSort(event.target.value)
+    setPaginatedSort(event.target.value);
   };
 
   return (
@@ -31,7 +28,7 @@ export const SortByAttack = ({setPaginatedSort}) => {
   );
 };
 
-export const SortByAlphabet = ({setPaginatedSort}) => {
+export const SortByAlphabet = ({ setPaginatedSort }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,7 +38,7 @@ export const SortByAlphabet = ({setPaginatedSort}) => {
   const handleSortAlphabetic = (event) => {
     event.preventDefault();
     dispatch(orderAlphabetic(event.target.value));
-    setPaginatedSort(event.target.value)
+    setPaginatedSort(event.target.value);
   };
 
   return (
