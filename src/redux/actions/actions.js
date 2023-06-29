@@ -16,7 +16,7 @@ import {
 export const getAllPokemons = () => {
   return async function (dispatch) {
     try {
-      const pokemons = await axios.get("pokemons");
+      const pokemons = await axios.get("/pokemons");
       return dispatch({ type: ALL_POKEMONS, payload: pokemons.data });
     } catch (error) {
       throw error;
@@ -31,7 +31,7 @@ export const searchPokemons = (name) => {
     }
     try {
       const search = await axios.get(
-        `pokemons/name?name=${name}`
+        `/pokemons/name?name=${name}`
       );
 
       return dispatch({ type: SEARCH_POKEMONS, payload: search.data });
@@ -49,7 +49,7 @@ export const searchPokemons = (name) => {
 export const detailPokemon = (id) => {
   return async function (dispatch) {
     try {
-      const detail = await axios.get(`pokemons/${id}`);
+      const detail = await axios.get(`/pokemons/${id}`);
       return dispatch({ type: DETAIL_POKEMON, payload: detail.data });
     } catch (error) {
       throw error;
@@ -60,7 +60,7 @@ export const detailPokemon = (id) => {
 export const createPokemon = (body) => {
   return async function () {
     try {
-      const create = await axios.post(`pokemons/`, body);
+      const create = await axios.post(`/pokemons`, body);
       window.alert("Pokémon successfully created.");
       return create;
     } catch (error) {
@@ -72,7 +72,7 @@ export const createPokemon = (body) => {
 export const deletePokemon = (id) => {
   return async function () {
     try {
-      const deletePokemon = await axios.delete(`pokemons/${id}`);
+      const deletePokemon = await axios.delete(`/pokemons/${id}`);
       window.alert(deletePokemon.data.message);
       return deletePokemon;
     } catch (error) {
@@ -84,7 +84,7 @@ export const deletePokemon = (id) => {
 export const updatePokemon = (id, body) => {
   return async function (dispatch) {
     try {
-      const updatePokemon = await axios.put(`pokemons/${id}`, body);
+      const updatePokemon = await axios.put(`/pokemons/${id}`, body);
       window.alert(updatePokemon.data.message)
       return dispatch({ type: UPDATE_POKEMONS, payload: updatePokemon.data });
     } catch (error) {
@@ -96,7 +96,7 @@ export const updatePokemon = (id, body) => {
 export const typesPokemon = () => {
   return async function (dispatch) {
     try {
-      const types = await axios.get(`types`);
+      const types = await axios.get(`/types`);
       return dispatch({ type: ALL_TYPES, payload: types.data });
     } catch (error) {
       throw error;

@@ -6,6 +6,10 @@ import Navbar from './Components/Navbar/Navbar';
 import FormCreatePokemon from './Components/FormCreate/FormCreatePokemon.jsx';
 import DetailPokemon from './Components/Detail/DetailPokemon.jsx';
 import UpdatePokemon from './Components/UpdatePokemon/UpdatePokemon';
+import axios from 'axios';
+
+/* axios.defaults.baseURL = "https://pokemon-frontend-flax.vercel.app/" */
+axios.defaults.baseURL = "http://localhost:3001/"
 
 
 function App() {
