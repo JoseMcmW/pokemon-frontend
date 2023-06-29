@@ -68,7 +68,7 @@ const Home = () => {
     //Eliminar Pokemon
     event.preventDefault();
     dispatch(deletePokemon(id));
-    window.location.href = "https://pokemon-backend-production-74d4.up.railway.app/home";
+    window.location.href = "https://pokemon-frontend-flax.vercel.app/home";
   }
 
   return (
