@@ -111,7 +111,7 @@ const UpdatePokemon = () => {
       weight: 0,
       types: [],
     });
-    window.location.href = "http://localhost:3000/home";
+    window.location.href = "https://pokemon-backend-production-74d4.up.railway.app/home";
   };
 
   //Handler del botón para eliminar types seleccionados.
