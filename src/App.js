@@ -8,8 +8,8 @@ import DetailPokemon from './Components/Detail/DetailPokemon.jsx';
 import UpdatePokemon from './Components/UpdatePokemon/UpdatePokemon';
 import axios from 'axios';
 
-/* axios.defaults.baseURL = "https://pokemon-backend-production-74d4.up.railway.app/" */
-axios.defaults.baseURL = "http://localhost:3001/"
+axios.defaults.baseURL = "https://pokemon-backend-production-74d4.up.railway.app/"
+/* axios.defaults.baseURL = "http://localhost:3001/" */
 
 
 function App() {
