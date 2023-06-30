@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin-top: 0.5em;
 }
 
 label {
@@ -37,4 +38,15 @@ label {
 
 .buttonSearch:hover {
   box-shadow: 1px 1px 15px #2C7BBF;
+}
+
+@media only screen and (min-width: 319px) and (max-width: 374px) {
+  .searchContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-top: 0.5em;
+  }
 }
