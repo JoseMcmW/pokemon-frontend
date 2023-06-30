@@ -15,7 +15,7 @@
   align-items: center;
   background-color: rgb(255, 0, 0);
   width: 90%;
-  height: 180px;
+  height: 11.25em;
   filter: drop-shadow(3px 3px 3px #000000);
   border: solid 1px black;
   border-radius: 5px 5px 0px 0px;
@@ -80,3 +80,43 @@
 .buttons button svg {
   width: 15px;
 }
+
+@media only screen and (min-width: 319px) and (max-width: 767px) {
+  .stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 8em;
+    background-color: white;
+    filter: drop-shadow(2px 2px 2px #000000);
+    border-bottom: solid 1px black;
+    border-right: solid 1px black;
+    border-left: solid 1px black;
+    border-radius: 0px 0px 5px 5px;
+    overflow-y: visible;
+  }
+  .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(255, 0, 0);
+    width: 90%;
+    height: 10em;
+    filter: drop-shadow(3px 3px 3px #000000);
+    border: solid 1px black;
+    border-radius: 5px 5px 0px 0px;
+  }
+
+  .img img {
+    margin: 0 auto;
+    min-height: 8em;
+    min-width: 8em;
+    max-height: 8em;
+    max-width: 8em;
+    filter: drop-shadow(3px 3px 3px #000000);
+    transition: transform 0.3s ease;
+  }
+}
+
