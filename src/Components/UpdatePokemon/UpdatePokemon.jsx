@@ -112,6 +112,7 @@ const UpdatePokemon = () => {
       types: [],
     });
     window.location.href = "https://pokemon-frontend-flax.vercel.app/home";
+/*     window.location.href = "http://localhost:3000/home"; */
   };
 
   //Handler del botón para eliminar types seleccionados.
